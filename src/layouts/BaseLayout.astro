@@ -1,0 +1,112 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Where innovation meets reality in gaming experiences. Home to Basketball Zero and upcoming revolutionary games." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <slot />
+</body>
+</html>
+
+<style is:global>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-white: #ffffff;
+    --primary-black: #000000;
+    --dark-grey: #0a0a0a;
+    --light-grey: #f5f5f5;
+    --medium-grey: #808080;
+    --glass-white: rgba(255, 255, 255, 0.1);
+    --glass-black: rgba(0, 0, 0, 0.8);
+    
+    --accent-blue: #5865F2;
+    --accent-red: #FF0000;
+    --accent-twitter: #1DA1F2;
+    
+    --gradient-bw: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    
+    --shadow-white: 0 0 15px rgba(255, 255, 255, 0.1);
+    --shadow-black: 0 0 20px rgba(0, 0, 0, 0.6);
+    --shadow-intense: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --shadow-subtle: 0 4px 12px rgba(255, 255, 255, 0.08);
+    
+    --font-scale-xs: clamp(0.75rem, 2vw, 0.875rem);
+    --font-scale-sm: clamp(0.875rem, 2.5vw, 1rem);
+    --font-scale-md: clamp(1rem, 3vw, 1.125rem);
+    --font-scale-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+    --font-scale-xl: clamp(1.25rem, 4vw, 1.5rem);
+    --font-scale-2xl: clamp(1.5rem, 5vw, 2rem);
+    --font-scale-3xl: clamp(2rem, 6vw, 3rem);
+    --font-scale-4xl: clamp(3rem, 8vw, 4rem);
+    --font-scale-5xl: clamp(4rem, 10vw, 6rem);
+    --font-scale-6xl: clamp(6rem, 12vw, 8rem);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--primary-black);
+    color: var(--primary-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+    position: relative;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    body {
+        cursor: auto;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-bw);
+    border-radius: 6px;
+}
+
+::selection {
+    background: var(--primary-white);
+    color: var(--primary-black);
+}
+</style>

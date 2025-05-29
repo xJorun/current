@@ -1,0 +1,88 @@
+---
+export interface Props {
+  href: string;
+  text: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const { href, text, variant = 'primary' } = Astro.props;
+---
+
+<a href={href} class={`quantum-button ${variant}`}>
+    <span class="button-text">{text}</span>
+    <div class="button-energy"></div>
+</a>
+
+<style>
+.quantum-button {
+    position: relative;
+    display: inline-block;
+    padding: 20px 50px;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--primary-white);
+    border-radius: 50px;
+    color: var(--primary-white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--font-scale-md);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+}
+
+.quantum-button.secondary {
+    border-color: var(--medium-grey);
+}
+
+.quantum-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-white);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.quantum-button.secondary::before {
+    background: var(--medium-grey);
+}
+
+.quantum-button:hover::before {
+    left: 0;
+}
+
+.quantum-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-subtle);
+    color: var(--primary-black);
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.button-energy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.quantum-button:hover .button-energy {
+    width: 200px;
+    height: 200px;
+}
+</style>

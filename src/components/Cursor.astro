@@ -1,0 +1,82 @@
+---
+---
+
+<div class="ultimate-cursor">
+    <div class="cursor-dot"></div>
+</div>
+
+<style>
+.ultimate-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-white);
+    border-radius: 50%;
+    transition: all 0.15s ease;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+    .ultimate-cursor {
+        display: none;
+    }
+}
+</style>
+
+<script>
+const cursor = document.querySelector('.cursor-dot');
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function lerp(start, end, factor) {
+    return start + (end - start) * factor;
+}
+
+function animate() {
+    cursorX = lerp(cursorX, mouseX, 0.2);
+    cursorY = lerp(cursorY, mouseY, 0.2);
+    
+    if (cursor) {
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+    }
+    
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+const interactiveElements = document.querySelectorAll('a, button, [data-cursor="pointer"]');
+
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        if (cursor) {
+            cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+            cursor.style.background = '#ffffff';
+            cursor.style.boxShadow = '0 0 40px rgba(255, 255, 255, 1)';
+        }
+    });
+    
+    el.addEventListener('mouseleave', () => {
+        if (cursor) {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.background = '#ffffff';
+            cursor.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.8)';
+        }
+    });
+});
+</script>

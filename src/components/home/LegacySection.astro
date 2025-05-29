@@ -1,0 +1,247 @@
+---
+---
+
+<section id="about" class="legacy-section">
+    <div class="legacy-container">
+        <div class="legacy-content">
+            <h2 class="legacy-title holographic">OUR GAMING LEGACY</h2>
+            <div class="legacy-text">
+                <p>Since our inception, <strong>Current Studios</strong> has been at the forefront of Roblox game development, pushing boundaries and creating experiences that redefine what's possible in the metaverse.</p>
+                <p>From the revolutionary Blue Lock Rivals to the groundbreaking Basketball Zero, we've consistently delivered games that not only entertain but inspire millions of players worldwide.</p>
+            </div>
+            <div class="legacy-timeline">
+                <div class="timeline-node" data-year="2023">
+                    <div class="node-content">
+                        <div class="node-year">2023</div>
+                        <div class="node-event">Blue Lock Rivals Revolution</div>
+                    </div>
+                    <div class="node-glow"></div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-node" data-year="2024">
+                    <div class="node-content">
+                        <div class="node-year">2024</div>
+                        <div class="node-event">Studio Expansion</div>
+                    </div>
+                    <div class="node-glow"></div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-node" data-year="2025">
+                    <div class="node-content">
+                        <div class="node-year">2025</div>
+                        <div class="node-event">Basketball Zero Launch</div>
+                    </div>
+                    <div class="node-glow"></div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-node" data-year="FUTURE">
+                    <div class="node-content">
+                        <div class="node-year">∞</div>
+                        <div class="node-event">Infinite Possibilities</div>
+                    </div>
+                    <div class="node-glow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.legacy-section {
+    padding: 150px 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.005) 0%, 
+        rgba(255, 255, 255, 0.01) 100%);
+    position: relative;
+}
+
+.legacy-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(255, 255, 255, 0.005) 0%, 
+        transparent 80%);
+    pointer-events: none;
+}
+
+.legacy-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.legacy-content {
+    text-align: center;
+}
+
+.legacy-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-4xl);
+    font-weight: 900;
+    margin-bottom: 60px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.holographic {
+    background: linear-gradient(45deg, 
+        #ffffff 0%, 
+        #f8f8f8 25%, 
+        #e8e8e8 50%, 
+        #ffffff 75%, 
+        #f8f8f8 100%);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: holographicShift 5s ease-in-out infinite;
+}
+
+.legacy-text {
+    max-width: 900px;
+    margin: 0 auto 80px;
+}
+
+.legacy-text p {
+    font-size: var(--font-scale-lg);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.legacy-text strong {
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: strongShimmer 3s ease-in-out infinite;
+}
+
+.legacy-timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-top: 80px;
+    position: relative;
+}
+
+.timeline-node {
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.node-content {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+}
+
+.timeline-node:hover .node-content {
+    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+    border-color: var(--primary-white);
+    box-shadow: var(--shadow-subtle);
+}
+
+.node-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-xl);
+    font-weight: 900;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: yearShimmer 4s ease-in-out infinite;
+}
+
+.node-event {
+    font-size: var(--font-scale-sm);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.node-glow {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    right: -20%;
+    bottom: -20%;
+    background: radial-gradient(circle, 
+        rgba(255, 255, 255, 0.01) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.timeline-node:hover .node-glow {
+    opacity: 1;
+}
+
+.timeline-connector {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    animation: connectorFlow 3s ease-in-out infinite;
+    margin: 0 -1px;
+}
+
+@keyframes holographicShift {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+@keyframes strongShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes yearShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes connectorFlow {
+    0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+    50% { opacity: 1; transform: scaleX(1.1); }
+}
+
+@media (max-width: 1200px) {
+    .legacy-timeline {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .timeline-connector {
+        width: 3px;
+        height: 50px;
+        margin: -1px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .legacy-container {
+        padding: 0 30px;
+    }
+}
+</style>

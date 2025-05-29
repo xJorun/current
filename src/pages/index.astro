@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import WhitePetals from '../components/WhitePetals.astro';
+import Cursor from '../components/Cursor.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import StatsSection from '../components/home/StatsSection.astro';
+import FeaturedGame from '../components/home/FeaturedGame.astro';
+import ComingGames from '../components/home/ComingGames.astro';
+import LegacySection from '../components/home/LegacySection.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import DataStream from '../components/DataStream.astro';
+
+const streamItems = [
+    'LIVE: <span id="live-players-ticker">0</span> players online',
+    'TOTAL: <span id="total-visits-ticker">0</span> game visits', 
+    'RATING: 98.72% satisfaction',
+    'STATUS: Gaming engine operating at maximum efficiency'
+];
+---
+
+<BaseLayout title="Current Studios - Redefining Reality">
+    <Cursor />
+    <Navigation currentPage="home" />
+    <WhitePetals />
+    <div class="subtle-grid"></div>
+
+    <HeroSection />
+    <StatsSection />
+    <FeaturedGame />
+    <ComingGames />
+    <LegacySection />
+    <ContactSection />
+    
+    <Footer />
+    <DataStream items={streamItems} />
+    
+    <style>
+    .subtle-grid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+        background-size: 100px 100px;
+        animation: gridMove 30s linear infinite;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    @keyframes gridMove {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(100px, 100px); }
+    }
+    </style>
+
+    <script>
+    const realStats = {
+        groupMembers: 7702929,
+        basketballZero: {
+            currentPlayers: 65039,
+            totalVisits: 274489545
+        }
+    };
+
+    function animateCounter(element, targetValue, duration = 2500) {
+        const startValue = parseInt(element.textContent.replace(/[^0-9]/g, '')) || 0;
+        const startTime = Date.now();
+        
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            const easeOutQuint = 1 - Math.pow(1 - progress, 5);
+            const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOutQuint);
+            
+            element.textContent = formatNumber(currentValue);
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+        
+        animate();
+    }
+
+    function formatNumber(num) {
+        if (num >= 1000000000) {
+            return (num / 1000000000).toFixed(1) + 'B';
+        } else if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toLocaleString();
+    }
+
+    function updateStats() {
+        const statElements = {
+            heroMembers: document.getElementById('hero-members'),
+            heroPlayers: document.getElementById('hero-players'),
+            heroVisits: document.getElementById('hero-visits'),
+            totalMembers: document.getElementById('total-members'),
+            currentPlayers: document.getElementById('current-players'),
+            totalVisits: document.getElementById('total-visits'),
+            bzTotalVisits: document.getElementById('bz-total-visits'),
+            bzCurrentPlayers: document.getElementById('bz-current-players'),
+            bzLivePlayers: document.getElementById('bz-live-players'),
+            livePlayersTicker: document.getElementById('live-players-ticker'),
+            totalVisitsTicker: document.getElementById('total-visits-ticker')
+        };
+
+        const changes = {
+            groupMembers: Math.floor(Math.random() * 4000) + 2000,
+            currentPlayers: Math.floor(Math.random() * 2000) - 800,
+            totalVisits: Math.floor(Math.random() * 20000) + 8000
+        };
+
+        realStats.groupMembers += changes.groupMembers;
+        realStats.basketballZero.currentPlayers = Math.max(0, realStats.basketballZero.currentPlayers + changes.currentPlayers);
+        realStats.basketballZero.totalVisits += changes.totalVisits;
+
+        Object.entries(statElements).forEach(([key, element]) => {
+            if (element) {
+                let value;
+                switch(key) {
+                    case 'heroMembers':
+                    case 'totalMembers':
+                        value = realStats.groupMembers;
+                        break;
+                    case 'heroPlayers':
+                    case 'currentPlayers':
+                    case 'bzCurrentPlayers':
+                    case 'bzLivePlayers':
+                    case 'livePlayersTicker':
+                        value = realStats.basketballZero.currentPlayers;
+                        break;
+                    case 'heroVisits':
+                    case 'totalVisits':
+                    case 'bzTotalVisits':
+                    case 'totalVisitsTicker':
+                        value = realStats.basketballZero.totalVisits;
+                        break;
+                }
+                if (value !== undefined) {
+                    animateCounter(element, value);
+                }
+            }
+        });
+    }
+
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+    setTimeout(updateStats, 1000);
+    setInterval(updateStats, 12000);
+    </script>
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+---
+
+<div class="white-petals" id="white-petals"></div>
+
+<style>
+.white-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50% 0 50% 0;
+    animation: petalFall linear infinite;
+    opacity: 0;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+
+<script>
+function createPetals() {
+    const petalsContainer = document.getElementById('white-petals');
+    if (!petalsContainer) return;
+    
+    const petalCount = 60;
+    
+    for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animationDuration = `${Math.random() * 15 + 10}s`;
+        petal.style.animationDelay = `${Math.random() * 10}s`;
+        petal.style.width = `${Math.random() * 6 + 8}px`;
+        petal.style.height = `${Math.random() * 12 + 15}px`;
+        petalsContainer.appendChild(petal);
+    }
+}
+
+createPetals();
+</script>

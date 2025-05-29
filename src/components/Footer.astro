@@ -1,0 +1,108 @@
+---
+---
+
+<footer class="cosmic-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://res.cloudinary.com/dcyvxzhnl/image/upload/v1748140545/2f1AS1Ju_400x400_takhfx.jpg" alt="Current Studios">
+                <span>CURRENT STUDIOS</span>
+            </div>
+            <div class="footer-text">
+                © 2025 Current Studios. Redefining Reality Across All Gaming Dimensions.
+            </div>
+        </div>
+        <div class="footer-glow"></div>
+    </div>
+</footer>
+
+<style>
+.cosmic-footer {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.5) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow-subtle);
+}
+
+.footer-logo:hover img {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.footer-logo span {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: var(--font-scale-lg);
+    letter-spacing: 3px;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: footerShimmer 4s ease-in-out infinite;
+}
+
+@keyframes footerShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--font-scale-sm);
+    font-weight: 500;
+}
+
+.footer-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, 
+        rgba(255, 255, 255, 0.005) 0%, 
+        transparent 70%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 0 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+</style>

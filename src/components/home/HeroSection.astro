@@ -1,0 +1,505 @@
+---
+import QuantumButton from '../QuantumButton.astro';
+---
+
+<section id="home" class="hero-cosmos">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>REDEFINING REALITY</span>
+                <div class="badge-glow"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">
+                    <span class="title-word glitch-text" data-text="CURRENT">CURRENT</span>
+                    <span class="title-word glitch-text" data-text="STUDIOS">STUDIOS</span>
+                </span>
+                <span class="title-line">
+                    <span class="title-word holographic" data-text="INFINITE">INFINITE</span>
+                    <span class="title-word holographic" data-text="POTENTIAL">POTENTIAL</span>
+                </span>
+            </h1>
+            <div class="hero-subtitle">
+                <p>Where innovation meets reality in gaming experiences. Home to Basketball Zero and upcoming revolutionary games.</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-cube">
+                    <div class="stat-face front">
+                        <span class="stat-number" id="hero-members">0</span>
+                        <span class="stat-label">STUDIO MEMBERS</span>
+                    </div>
+                </div>
+                <div class="stat-separator">
+                    <div class="separator-line"></div>
+                </div>
+                <div class="stat-cube">
+                    <div class="stat-face front">
+                        <span class="stat-number" id="hero-players">0</span>
+                        <span class="stat-label">ACTIVE PLAYERS</span>
+                    </div>
+                </div>
+                <div class="stat-separator">
+                    <div class="separator-line"></div>
+                </div>
+                <div class="stat-cube">
+                    <div class="stat-face front">
+                        <span class="stat-number" id="hero-visits">0</span>
+                        <span class="stat-label">TOTAL VISITS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <QuantumButton href="/games" text="ENTER THE ARENA" />
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hologram-container">
+                <div class="hologram-grid">
+                    <div class="game-hologram" data-game="basketball">
+                        <img src="https://res.cloudinary.com/dcyvxzhnl/image/upload/v1748311391/BBZ_Icon_for_emporer_dvs3qa.png" alt="Basketball Zero">
+                        <div class="hologram-overlay"></div>
+                        <div class="hologram-stats">
+                            <span id="bz-live-players">0</span> playing now
+                        </div>
+                    </div>
+                    <div class="game-hologram" data-game="volleyball">
+                        <img src="https://res.cloudinary.com/dcyvxzhnl/image/upload/v1748194430/image_2025-05-25_133348451_wts8qy.png" alt="Volleyball Zero">
+                        <div class="hologram-overlay coming-soon"></div>
+                        <div class="hologram-stats">
+                            Coming Soon
+                        </div>
+                    </div>
+                    <div class="game-hologram" data-game="mugen">
+                        <img src="https://res.cloudinary.com/dcyvxzhnl/image/upload/v1748194458/image_2025-05-25_133417171_ohp8zn.png" alt="Mugen">
+                        <div class="hologram-overlay coming-soon"></div>
+                        <div class="hologram-stats">
+                            In Development
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-portal">
+        <div class="portal-ring"></div>
+        <span>EXPLORE</span>
+    </div>
+</section>
+
+<style>
+.hero-cosmos {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        var(--primary-black);
+    overflow: hidden;
+    padding: 140px 0 100px;
+}
+
+.hero-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: center;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+}
+
+.hero-badge {
+    position: relative;
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.hero-badge span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-xs);
+    font-weight: 700;
+    letter-spacing: 3px;
+    background: var(--gradient-bw);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: badgeShimmer 3s ease-in-out infinite;
+}
+
+.hero-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-5xl);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 50px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.title-line {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.title-word {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: titleReveal 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    position: relative;
+}
+
+.title-word:nth-child(1) { animation-delay: 0.2s; }
+.title-word:nth-child(2) { animation-delay: 0.4s; }
+.title-line:nth-child(2) .title-word:nth-child(1) { animation-delay: 0.6s; }
+.title-line:nth-child(2) .title-word:nth-child(2) { animation-delay: 0.8s; }
+
+@keyframes titleReveal {
+    to { transform: translateY(0); }
+}
+
+.glitch-text {
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glitchShimmer 4s ease-in-out infinite;
+    position: relative;
+}
+
+.holographic {
+    background: linear-gradient(45deg, 
+        #ffffff 0%, 
+        #f8f8f8 25%, 
+        #e8e8e8 50%, 
+        #ffffff 75%, 
+        #f8f8f8 100%);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: holographicShift 5s ease-in-out infinite;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: var(--font-scale-lg);
+    color: #ffffff;
+    margin-bottom: 60px;
+    max-width: 600px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1s forwards;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.2s forwards;
+}
+
+.stat-cube {
+    perspective: 1000px;
+    transition: all 0.4s ease;
+}
+
+.stat-cube:hover {
+    transform: rotateY(15deg) rotateX(5deg);
+}
+
+.stat-face {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-2xl);
+    font-weight: 900;
+    margin-bottom: 8px;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: numberPulse 3s ease-in-out infinite;
+}
+
+.stat-label {
+    font-size: var(--font-scale-xs);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.stat-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.separator-line {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    animation: separatorGlow 2s ease-in-out infinite alternate;
+}
+
+.hero-cta {
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.4s forwards;
+}
+
+.hero-visual {
+    position: relative;
+    z-index: 1;
+}
+
+.hologram-container {
+    position: relative;
+    perspective: 1200px;
+}
+
+.hologram-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    transform: rotateY(-15deg) rotateX(5deg);
+    transition: all 0.6s ease;
+}
+
+.hologram-container:hover .hologram-grid {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+.game-hologram {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.game-hologram:nth-child(1) {
+    grid-column: 1 / -1;
+    transform: translateZ(50px);
+}
+
+.game-hologram:hover {
+    transform: translateZ(100px) scale(1.05);
+    border-color: var(--primary-white);
+    box-shadow: var(--shadow-subtle);
+}
+
+.game-hologram img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s ease;
+}
+
+.hologram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.hologram-overlay.coming-soon {
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.05), 
+        rgba(255, 255, 255, 0.1));
+    opacity: 0.3;
+}
+
+.game-hologram:hover .hologram-overlay {
+    opacity: 0.8;
+    animation: hologramScan 1s ease-in-out;
+}
+
+.hologram-stats {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-sm);
+    font-weight: 600;
+    color: var(--primary-white);
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.game-hologram:hover .hologram-stats {
+    transform: translateY(0);
+}
+
+.scroll-portal {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--font-scale-xs);
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.portal-ring {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary-white);
+    border-radius: 50%;
+    position: relative;
+    animation: portalSpin 3s linear infinite;
+}
+
+.portal-ring::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--medium-grey);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: portalSpin 2s linear infinite reverse;
+}
+
+@keyframes badgeShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes glitchShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes holographicShift {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+@keyframes numberPulse {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes separatorGlow {
+    0% { opacity: 0.3; transform: scaleY(0.8); }
+    100% { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes hologramScan {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(100%) skewX(-15deg); }
+}
+
+@keyframes portalSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1200px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 80px;
+        text-align: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 0 30px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .stat-separator {
+        height: 20px;
+    }
+    
+    .separator-line {
+        width: 80px;
+        height: 2px;
+    }
+    
+    .hologram-grid {
+        grid-template-columns: 1fr;
+        transform: none;
+    }
+    
+    .game-hologram:nth-child(1) {
+        grid-column: 1;
+    }
+}
+</style>

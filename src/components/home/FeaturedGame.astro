@@ -1,0 +1,314 @@
+---
+import QuantumButton from '../QuantumButton.astro';
+---
+
+<section class="featured-game">
+    <div class="game-container">
+        <div class="game-content">
+            <div class="game-badge">
+                <span>FEATURED GAME</span>
+                <div class="badge-energy"></div>
+            </div>
+            <h2 class="game-title">BASKETBALL ZERO</h2>
+            <p class="game-description">Experience the ultimate basketball gaming revolution. Master your skills, dominate the court, and rise through the ranks in the most competitive basketball game on Roblox.</p>
+            <div class="game-metrics">
+                <div class="metric-cube">
+                    <div class="metric-number" id="bz-total-visits">0</div>
+                    <div class="metric-label">Total Visits</div>
+                </div>
+                <div class="metric-cube">
+                    <div class="metric-number" id="bz-current-players">0</div>
+                    <div class="metric-label">Playing Now</div>
+                </div>
+                <div class="metric-cube">
+                    <div class="metric-number">98.9%</div>
+                    <div class="metric-label">Rating</div>
+                </div>
+                <div class="metric-cube">
+                    <div class="metric-number">900K+</div>
+                    <div class="metric-label">Favorites</div>
+                </div>
+            </div>
+            <QuantumButton href="/games" text="PLAY NOW" variant="secondary" />
+        </div>
+        <div class="game-preview">
+            <div class="preview-container">
+                <img src="https://res.cloudinary.com/dcyvxzhnl/image/upload/v1748311679/BBZ_Icon_finished_ojktfw.png" alt="Basketball Zero">
+                <div class="preview-overlay">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="preview-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.featured-game {
+    padding: 150px 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.01) 0%, 
+        rgba(255, 255, 255, 0.005) 100%);
+    position: relative;
+}
+
+.featured-game::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, 
+        rgba(255, 255, 255, 0.02) 0%, 
+        transparent 50%);
+    pointer-events: none;
+}
+
+.game-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.game-content {
+    position: relative;
+}
+
+.game-badge {
+    position: relative;
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--medium-grey);
+    border-radius: 50px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.game-badge span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-sm);
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--medium-grey);
+    text-transform: uppercase;
+}
+
+.badge-energy {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.8s ease;
+}
+
+.game-badge:hover .badge-energy {
+    left: 100%;
+}
+
+.game-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-4xl);
+    font-weight: 900;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gameShimmer 5s ease-in-out infinite;
+}
+
+.game-description {
+    font-size: var(--font-scale-lg);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 50px;
+    max-width: 600px;
+}
+
+.game-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.metric-cube {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-cube:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--primary-white);
+    box-shadow: var(--shadow-subtle);
+}
+
+.metric-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-2xl);
+    font-weight: 900;
+    display: block;
+    margin-bottom: 8px;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #f8f8f8, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: metricPulse 3s ease-in-out infinite;
+}
+
+.metric-label {
+    font-size: var(--font-scale-xs);
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.game-preview {
+    position: relative;
+    perspective: 1000px;
+}
+
+.preview-container {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.preview-container:hover {
+    transform: rotateY(-15deg) rotateX(5deg) scale(1.05);
+    border-color: var(--primary-white);
+    box-shadow: var(--shadow-subtle);
+}
+
+.preview-container img {
+    width: 100%;
+    height: auto;
+    transition: all 0.6s ease;
+}
+
+.preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.preview-container:hover .preview-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-bw);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    animation: playPulse 2s ease-in-out infinite;
+}
+
+.play-button svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-black);
+    margin-left: 5px;
+}
+
+.preview-glow {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    right: -20%;
+    bottom: -20%;
+    background: radial-gradient(circle, 
+        rgba(255, 255, 255, 0.01) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.preview-container:hover .preview-glow {
+    opacity: 1;
+}
+
+@keyframes gameShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes metricPulse {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes playPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 1200px) {
+    .game-container {
+        grid-template-columns: 1fr;
+        gap: 80px;
+        text-align: center;
+    }
+    
+    .game-metrics {
+        max-width: 400px;
+        margin: 0 auto 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: 0 30px;
+    }
+    
+    .game-metrics {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+</style>

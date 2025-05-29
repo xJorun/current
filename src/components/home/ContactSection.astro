@@ -1,0 +1,190 @@
+---
+---
+
+<section class="contact-section">
+    <div class="contact-container">
+        <h2 class="contact-title holographic">JOIN THE REVOLUTION</h2>
+        <p class="contact-subtitle">Connect with our community and stay updated on the latest releases</p>
+        <div class="contact-portals">
+            <a href="#" class="contact-portal discord">
+                <div class="portal-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.193.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                </div>
+                <span>Discord Community</span>
+                <div class="portal-energy"></div>
+            </a>
+            <a href="#" class="contact-portal youtube">
+                <div class="portal-icon">
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </div>
+                <span>YouTube Channel</span>
+                <div class="portal-energy"></div>
+            </a>
+            <a href="https://x.com/currentgamesrbx" class="contact-portal twitter" target="_blank">
+                <div class="portal-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.80l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </div>
+                <span>Latest Updates</span>
+                <div class="portal-energy"></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-section {
+    padding: 150px 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.005) 0%, 
+        rgba(255, 255, 255, 0.01) 100%);
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, 
+        rgba(255, 255, 255, 0.01) 0%, 
+        transparent 60%);
+    pointer-events: none;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-4xl);
+    font-weight: 900;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.holographic {
+    background: linear-gradient(45deg, 
+        #ffffff 0%, 
+        #f8f8f8 25%, 
+        #e8e8e8 50%, 
+        #ffffff 75%, 
+        #f8f8f8 100%);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: holographicShift 5s ease-in-out infinite;
+}
+
+.contact-subtitle {
+    font-size: var(--font-scale-lg);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 80px;
+}
+
+.contact-portals {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.contact-portal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 40px;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: var(--primary-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-scale-md);
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-portal.discord {
+    background: linear-gradient(135deg, var(--accent-blue), rgba(88, 101, 242, 0.3));
+}
+
+.contact-portal.youtube {
+    background: linear-gradient(135deg, var(--accent-red), rgba(255, 0, 0, 0.3));
+}
+
+.contact-portal.twitter {
+    background: linear-gradient(135deg, var(--accent-twitter), rgba(29, 161, 242, 0.3));
+}
+
+.contact-portal:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: var(--shadow-subtle);
+    border-color: var(--primary-white);
+}
+
+.portal-icon {
+    width: 30px;
+    height: 30px;
+    transition: all 0.4s ease;
+}
+
+.portal-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary-white);
+    transition: all 0.4s ease;
+}
+
+.contact-portal:hover .portal-icon {
+    transform: rotateY(360deg) scale(1.2);
+}
+
+.contact-portal .portal-energy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.contact-portal:hover .portal-energy {
+    width: 200px;
+    height: 200px;
+}
+
+@keyframes holographicShift {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+@media (max-width: 1200px) {
+    .contact-portals {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 0 30px;
+    }
+}
+</style>

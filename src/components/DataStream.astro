@@ -1,0 +1,58 @@
+---
+export interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="data-stream">
+    <div class="stream-content">
+        {items.map((item, index) => (
+            <>
+                <span class="stream-item">{item}</span>
+                {index < items.length - 1 && <span class="stream-separator">•</span>}
+            </>
+        ))}
+    </div>
+</div>
+
+<style>
+.data-stream {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.stream-content {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-scale-xs);
+    color: var(--primary-white);
+    white-space: nowrap;
+    animation: streamFlow 30s linear infinite;
+}
+
+@keyframes streamFlow {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.stream-item {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.stream-separator {
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 15px;
+}
+</style>
